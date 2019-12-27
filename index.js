@@ -25,7 +25,7 @@ function fileHandlerForReading(fileName) {
 function fileHandlerForWritinig(fileName) {
     return new Promise((resolve, reject) => {
         fs.writeFile(fileName, 'The first line in the file', (err) => {
-            console.log('We has writing selected file');
+            console.log('We has filled selected file');
             if (err) { return reject; }
             else return resolve();
         })
@@ -72,7 +72,7 @@ function deleteFile(filename) {
         await fileHandlerForReading(testFile);
         await fileHandlerRename(testFile, newFileName);
         await fileHandlerForReading(newFileName);
-        // await deleteFile(newFileName);
+        await deleteFile(newFileName);
     }
     catch (err) {
         console.error(err);
